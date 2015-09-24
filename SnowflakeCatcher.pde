@@ -45,7 +45,7 @@ class Snowflake
   {
     if (y >= 0 || y <= 500)
     {
-      if (getPixelColor(x, y + 1) != 0) //if below != black
+      if (get(x, y + 1) != color(0, 0, 0))
         isMoving = false;
       else
         isMoving = true;
@@ -67,7 +67,7 @@ class Snowflake
   }
   void wrap()
   {
-    if (y > 500)
+    if (y > 500 || y < 0)
     {
       x = (int)(Math.random()*500);
       y = 0;
