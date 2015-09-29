@@ -23,18 +23,20 @@ void draw()
 }
 void mouseDragged()
 {
-  //your code here
+  stroke(255);
+  line(mouseX, mouseY, 20, 20);
 }
 
 class Snowflake
 {
-  int x, y, snowSize;
+  int x, y, snowSize, snowSpeed;
   boolean isMoving;
   Snowflake()
   {
     x = (int)(Math.random()*501);
     y = (int)(Math.random()*501);
     snowSize = (int)(Math.random()*6)+2;
+    snowSpeed = (int)(Math.random()*3)+1;
     isMoving = true;
   }
   void show()
@@ -61,15 +63,6 @@ class Snowflake
   }
   void move()
   {
-    // need to make speed random
-    int snowSpeed;
-    int randSpeed = (int)(Math.random()*1);
-      if (randSpeed == 0)
-        snowSpeed = 1;
-      else if(randSpeed ==1)
-        snowSpeed = 2;
-      else
-        snowSpeed = 1;
     if (isMoving == true)
     {
       y = y + snowSpeed;
