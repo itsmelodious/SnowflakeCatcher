@@ -11,7 +11,6 @@ void setup()
 }
 void draw()
 {
-  background(0);
   for (int i = 0; i < s.length; i++)
   {
     s[i].erase();
@@ -23,8 +22,13 @@ void draw()
 }
 void mouseDragged()
 {
-  stroke(255);
-  line(mouseX, mouseY, 20, 20);
+  noStroke();
+  ellipse(mouseX, mouseY, 10, 10);
+}
+void keyPressed()
+{
+  if (keyPressed == true)
+    background(0);
 }
 
 class Snowflake
@@ -42,13 +46,14 @@ class Snowflake
   void show()
   {
     fill(255);
+    stroke(0);
     ellipse(x, y, snowSize, snowSize);
   }
   void lookDown()
   {
     if (y >= 0 && y < 500)
     {
-      if (get(x, y + 1) != color(0, 0, 0))
+      if (get(x, y + ((snowSize) + 1)) != color(0, 0, 0)) // need to fix
         isMoving = false;
       else
         isMoving = true;
