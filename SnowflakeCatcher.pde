@@ -22,12 +22,13 @@ void draw()
 }
 void mouseDragged()
 {
-  noStroke();
-  ellipse(mouseX, mouseY, 10, 10);
+  strokeWeight(10);
+  stroke(255);
+  line(mouseX, mouseY, pmouseX, pmouseY);
 }
 void keyPressed()
 {
-  if (keyPressed == true)
+  if (key == 'a')
     background(0);
 }
 
@@ -46,7 +47,7 @@ class Snowflake
   void show()
   {
     fill(255);
-    stroke(0);
+    noStroke();
     ellipse(x, y, snowSize, snowSize);
   }
   void lookDown()
@@ -64,6 +65,7 @@ class Snowflake
   void erase()
   {
     fill(0);
+    noStroke();
     ellipse(x, y, snowSize + 1, snowSize + 1);
   }
   void move()
