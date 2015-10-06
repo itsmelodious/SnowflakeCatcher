@@ -49,14 +49,11 @@ class Snowflake
     fill(255);
     noStroke();
     ellipse(x, y, snowSize, snowSize);
-    System.out.println("size = " + snowSize);
-    System.out.println("Y = " + y);
   }
   void lookDown()
   {
-    if (y >= 0 && y < 500)
+    if (y >= 0 && y < 500 - (snowSize) && get(x, y + (snowSize)) != color(0, 0, 0))
     {
-      if (get(x, y + snowSize + 1) != color(0, 0, 0))
         isMoving = false;
     }
     else
@@ -66,7 +63,7 @@ class Snowflake
   {
     fill(0);
     noStroke();
-    ellipse(x, y, snowSize + 1, snowSize + 1);
+    ellipse(x, y, snowSize + 3, snowSize + 3);
   }
   void move()
   {
@@ -77,7 +74,7 @@ class Snowflake
   }
   void wrap()
   {
-    if (y >= 499 - snowSize)
+    if (y >= 500)
     {
       x = (int)(Math.random()*500);
       y = 0;
